@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/DiceGame/static/css/main.7c2ddf5f.css",
+    "main.js": "/DiceGame/static/js/main.688cc70e.js",
+    "index.html": "/DiceGame/index.html",
+    "main.7c2ddf5f.css.map": "/DiceGame/static/css/main.7c2ddf5f.css.map",
+    "main.688cc70e.js.map": "/DiceGame/static/js/main.688cc70e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c2ddf5f.css",
+    "static/js/main.688cc70e.js"
+  ]
+}
