@@ -2,11 +2,14 @@ import React from 'react';
 import Die from './components/Die';
 import {nanoid} from 'nanoid';
 import Confetti from 'react-confetti';
+import Swal from 'sweetalert2';
+
 
 export default function App(){
 
      const [dice,setDice] = React.useState(allNewDice());
      const [tenzies,setTenzies] = React.useState(false);
+     const [rolls,setRolls] = React.useState(0);
 
      React.useEffect(() => {
 
@@ -16,7 +19,26 @@ export default function App(){
 
          if(allHeld && allSameValue)
          {
+             console.log(rolls);
+             if(rolls<10)
+             {
+             Swal.fire(
+                'Good job!',
+                `You used only ${rolls} Dice rolls!`,
+                'success'
+              )
+             }
+             else{
+                Swal.fire(
+                    'Try Once more',
+                    `You took ${rolls} Dice rolls!`,
+                    'question'
+                  )
+
+             }
+             setRolls(0);
              setTenzies(true);
+             
              
          }
 
@@ -34,6 +56,7 @@ export default function App(){
 
     function allNewDice()
     {
+        
         const newDice=[];
         for(let i=0;i<10;i++)
         {
@@ -51,11 +74,14 @@ export default function App(){
                 die : 
                 generateNewDie()
         })
+        
 
         )
+        setRolls(prevalue => prevalue+1);
     }
     else{
         setTenzies(false);
+       
         setDice(allNewDice());
     }
     }
