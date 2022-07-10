@@ -19,7 +19,7 @@ export default function App(){
 
          if(allHeld && allSameValue)
          {
-             console.log(rolls);
+             
              if(rolls<10)
              {
              Swal.fire(
@@ -77,7 +77,16 @@ export default function App(){
         
 
         )
+      
         setRolls(prevalue => prevalue+1);
+        
+       
+       
+       
+
+
+
+        
     }
     else{
         setTenzies(false);
@@ -101,11 +110,14 @@ export default function App(){
         <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)}/>
     )
 
+   
+
     return(
         <main>
             {tenzies && <Confetti/>}
              <h1 className="title">Dice Equalizer</h1>
             <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+            <h3 className="rolls-count">Your Rolls count <span id="rolls-no">{rolls}</span></h3>
             <div className="dice-container">
             {diceElements}
            
